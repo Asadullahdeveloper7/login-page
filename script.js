@@ -8,7 +8,7 @@ class User {
   }
 }
 
-let users = JSON.parse(localStorage.getItem("users")) ;
+let users = JSON.parse(localStorage.getItem("users")) || [];
 
 /* ==== Toggle Forms ==== */
 function toggleForms() {
@@ -27,7 +27,7 @@ function userSignUp(event) {
   const signupMsg = document.getElementById("signupMsg");
 
 
-  const exists = users?.find((element) => element.email === email);
+  const exists = users.find((element) => element.email === email);
   if (exists) {
     signupMsg.style.color = "red";
     signupMsg.textContent = " Email already registered!";
@@ -57,13 +57,12 @@ function userLogin(event) {
   const password = document.getElementById("loginPassword").value;
   const loginMsg = document.getElementById("loginMsg");
 
-  users = JSON.parse(localStorage.getItem("users")) ;
+  users = JSON.parse(localStorage.getItem("users")) || [];
   const found = users.find((element) => element.email === email && element.password === password);
-  console.log(found);
-  if (found.email) {
-    loginMsg.style.color = "#fff";
-    loginMsg.textContent = " Welcome back " + found.firstName + "!";
 
+  if (found) {
+     loginMsg.style.color = "#000000ff";
+    loginMsg.textContent = "WELCOME Back..!";
   } else {
     loginMsg.style.color = "red";
     loginMsg.textContent = "Invalid email or password!";
