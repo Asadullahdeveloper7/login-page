@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User SignUp & Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-box" id="formBox">
+
+      
+      <form id="signupForm" onsubmit="userSignUp(event)" class="active">
+        <h2>Create Account</h2>
+        <input type="text" id="firstName" placeholder="First Name" required>
+        <input type="text" id="lastName" placeholder="Last Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+        <p class="toggle-text">
+          Already have an account?
+          <span class="toggle-btn" onclick="toggleForms()">Login</span>
+        </p>
+        <div class="msg" id="signupMsg"></div>
+      </form>
+
+      <form id="loginForm" onsubmit="userLogin(event)">
+        <h2>Welcome Back</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p class="toggle-text">
+          Don't have an account?
+          <span class="toggle-btn" onclick="toggleForms()">Sign Up</span>
+        </p>
+        <div class="msg" id="loginMsg"></div>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
