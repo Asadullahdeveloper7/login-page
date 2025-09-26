@@ -6,33 +6,23 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(-45deg, #1b1b2f, #162447, #1f4068, #e43f5a);
-  background-size: 400% 400%;
-  animation: bgShift 15s ease infinite;
-}
-@keyframes bgShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  background: #f2f2f2;
 }
 
+/* ====== Container ====== */
 .wrapper {
   width: 95%;
-  max-width: 450px;
+  max-width: 400px;
   padding: 20px;
   box-sizing: border-box;
 }
 
 .form-box {
-  position: relative;
-  background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   box-sizing: border-box;
 }
 
@@ -40,92 +30,80 @@ body {
 form {
   display: none;
   flex-direction: column;
-  gap: 18px;
-  animation: fadeIn 0.5s ease forwards;
+  gap: 16px;
 }
 form.active {
   display: flex;
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
 h2 {
   text-align: center;
-  color: #fff;
-  margin: 0 0 10px;
-  font-size: 1.6rem;
-  text-shadow: 0 0 8px #00ffe0;
+  color: #333;
+  margin: 0 0 15px;
+  font-size: 1.5rem;
 }
 
+/* ====== Inputs ====== */
 input {
   width: 100%;
-  padding: 14px 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid #00ffe0;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
   box-sizing: border-box;
+  outline: none;
 }
-input::placeholder { color: #bbb; }
 input:focus {
-  border-color: #ff00c8;
-  box-shadow: 0 0 12px #ff00c8;
+  border-color: #5c9ded;
+  box-shadow: 0 0 4px #5c9ded;
 }
 
+/* ====== Buttons ====== */
 button {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   border: none;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #00ffe0, #ff00c8);
+  border-radius: 6px;
+  background: #5c9ded;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
+  transition: background 0.3s;
 }
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px #00ffe0;
+  background: #4a89dc;
 }
 
-
+/* ====== Toggle / Messages ====== */
 .toggle-text {
   text-align: center;
-  font-size: 15px;
-  color: #eee;
-  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
 }
 .toggle-btn {
-  color: #00ffe0;
+  color: #5c9ded;
   cursor: pointer;
-  font-weight: bold;
-  transition: color 0.3s;
+  font-weight: 600;
 }
 .toggle-btn:hover {
-  color: #ff00c8;
+  text-decoration: underline;
 }
-
 
 .msg {
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  min-height: 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  min-height: 20px;
 }
 
 /* ====== Responsive ====== */
 @media (max-width: 480px) {
   .form-box {
     padding: 20px;
-    border-radius: 16px;
   }
-  h2 { font-size: 1.4rem; }
-  input, button { font-size: 15px; }
+  h2 { font-size: 1.3rem; }
+  input, button { font-size: 14px; }
 }

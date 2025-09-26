@@ -8,7 +8,7 @@ class User {
   }
 }
 
-let users = JSON.parse(localStorage.getItem("users")) || [];
+let users = JSON.parse(localStorage.getItem("users")) ;
 
 /* ==== Toggle Forms ==== */
 function toggleForms() {
@@ -20,14 +20,14 @@ function toggleForms() {
 function userSignUp(event) {
   event.preventDefault();
 
-  const firstName = document.getElementById("firstName").value.trim();
-  const lastName  = document.getElementById("lastName").value.trim();
-  const email     = document.getElementById("email").value.trim();
-  const password  = document.getElementById("password").value.trim();
+  const firstName = document.getElementById("firstName").value;
+  const lastName  = document.getElementById("lastName").value;
+  const email     = document.getElementById("email").value;
+  const password  = document.getElementById("password").value;
   const signupMsg = document.getElementById("signupMsg");
 
 
-  const exists = users.find(u => u.email === email);
+  const exists = users?.find((element) => element.email === email);
   if (exists) {
     signupMsg.style.color = "red";
     signupMsg.textContent = " Email already registered!";
@@ -49,20 +49,21 @@ function userSignUp(event) {
   }, 1000);
 }
 
-/* ==== Login ==== */
+
 function userLogin(event) {
   event.preventDefault();
 
-  const email    = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
+  const email    = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
   const loginMsg = document.getElementById("loginMsg");
 
-  users = JSON.parse(localStorage.getItem("users")) || [];
-  const found = users.find(u => u.email === email && u.password === password);
-
-  if (found) {
+  users = JSON.parse(localStorage.getItem("users")) ;
+  const found = users.find((element) => element.email === email && element.password === password);
+  console.log(found);
+  if (found.email) {
     loginMsg.style.color = "#fff";
     loginMsg.textContent = " Welcome back " + found.firstName + "!";
+
   } else {
     loginMsg.style.color = "red";
     loginMsg.textContent = "Invalid email or password!";
